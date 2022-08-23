@@ -4,16 +4,14 @@
   <tbody>
     <% @tasks.each do |task| %>
 
-      <% if task.done == true %>
+      <% if task.done %>
         <tr class="table-secondary">
           <td class="striker"><%= link_to task.name, edit_task_path(task) %></td>
           <td><%= task.description %></td>
           <td>
             <center>
-              <%= form_for(task) do |f| %>
-              <%= f.text_field :name, type: 'hidden' %>
-              <%= f.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
-              <%= f.submit "Complete", class: 'btn btn-outline-secondary btn-sm' %>
+              <%= link_to "#", class: 'btn btn-info', data: { reflex: 'click->Task#mark_incomplete', id: task.id } do %>
+                <i class='fas fa-check'></i>
               <% end %>
             </center>
           </td>
@@ -31,10 +29,8 @@
           <td><%= task.description %></td>
           <td>
             <center>
-              <%= form_for(task) do |f| %>
-              <%= f.text_field :name, type: 'hidden' %>
-              <%= f.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
-              <%= f.submit "Incomplete", class: 'btn btn-outline-secondary btn-sm' %>
+              <%= link_to "#", class: 'btn btn-dark', data: { reflex: 'click->Task#mark_complete', id: task.id } do %>
+                <i class='fas fa-times'></i>
               <% end %>
             </center>
           </td>
