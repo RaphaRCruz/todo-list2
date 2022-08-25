@@ -1,4 +1,10 @@
-<h2>Tasks To do:</h2>
+<div class="card-body mb-4">
+  <h2><b>Tasks To do:</b></h2>
+  <p class="text-secondary mb-0"><%= Task.percent_done %>% Complete (<%= Task.completed %>/<%= Task.total %>) Tasks</p>
+  <div class="progress">
+    <div class="progress-bar bg-primary" role="progressbar" style="width: <%= Task.percent_done %>%" aria-valuenow="<%= Task.percent_done %>" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+</div>
 
 <table class="table table-bordered">
   <tbody>
@@ -6,11 +12,11 @@
 
       <% if task.done %>
         <tr class="table-secondary">
-          <td class="striker"><%= link_to task.name, edit_task_path(task) %></td>
-          <td><%= task.description %></td>
+          <td><em><%= link_to task.name, edit_task_path(task), class: "btn btn-light" %></em></td>
+          <td><em><%= task.description %></em></td>
           <td>
             <center>
-              <%= link_to "#", class: 'btn btn-info', data: { reflex: 'click->Task#mark_incomplete', id: task.id } do %>
+              <%= link_to "#", class: 'btn btn-primary', data: { reflex: 'click->Task#mark_incomplete', id: task.id } do %>
                 <i class='fas fa-check'></i>
               <% end %>
             </center>
