@@ -21,4 +21,15 @@ class Task < ApplicationRecord
   def self.total
     Task.count
   end
+
+  def self.status
+    case self.percent_done.to_i
+    when 0
+      "Not started"
+    when 100
+      "Completed"
+    else
+      "In progress"
+    end
+  end
 end

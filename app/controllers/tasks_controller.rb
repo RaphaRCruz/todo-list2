@@ -23,10 +23,6 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
-  def complete
-    @tasks = Task.where(done: true)
-  end
-
   def destroy
     @task.destroy
     redirect_to root_path
@@ -40,15 +36,5 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
-  end
-
-  def complete_incomplete
-    if @task.done == true
-      redirect_to complete_tasks_path
-    end
-
-    if @task.done == false
-      redirect_to root_path
-    end
   end
 end

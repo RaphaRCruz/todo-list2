@@ -1,8 +1,7 @@
-<h2>Update a Task:</h2>
+<h3><b>Update a Task:</b></h3>
 
 <%= simple_form_for(@task) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :done %>
   <%= f.submit class: "btn btn-outline-secondary btn-sm" %>
 <% end %>
