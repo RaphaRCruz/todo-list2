@@ -11,14 +11,19 @@
     <% @tasks.each do |task| %>
 
       <% if task.done %>
-        <tr class="table-secondary">
-          <td><em><%= link_to task.name, edit_task_path(task), class: "btn btn-light" %></em></td>
+        <tr class="table-secondary text-muted">
+          <td><em><%= task.name %></em></td>
           <td><em><%= task.description %></em></td>
           <td>
             <center>
               <%= link_to "#", class: 'btn btn-primary', data: { reflex: 'click->Task#mark_incomplete', id: task.id } do %>
                 <i class='fas fa-check'></i>
               <% end %>
+            </center>
+          </td>
+          <td>
+            <center>
+              <%= link_to "Edit", edit_task_path(task), class: "btn btn-outline-secondary btn-sm" %>
             </center>
           </td>
           <td>
@@ -31,13 +36,18 @@
       <% else %>
 
         <tr>
-          <td><%= link_to task.name, edit_task_path(task), class: "btn btn-light" %></td>
+          <td><%= task.name %></td>
           <td><%= task.description %></td>
           <td>
             <center>
               <%= link_to "#", class: 'btn btn-dark', data: { reflex: 'click->Task#mark_complete', id: task.id } do %>
                 <i class='fas fa-times'></i>
               <% end %>
+            </center>
+          </td>
+          <td>
+            <center>
+              <%= link_to "Edit", edit_task_path(task), class: "btn btn-outline-secondary btn-sm" %>
             </center>
           </td>
           <td>
