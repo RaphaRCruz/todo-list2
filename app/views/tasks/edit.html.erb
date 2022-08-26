@@ -1,7 +1,13 @@
 <h3><b>Update a Task:</b></h3>
 
-<%= simple_form_for(@task) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
+<%= form_for(@task) do |f| %>
+  <div class="input-group mb-4 mt-4">
+    <h5><%= f.text_field :name, class: "form-control" %></h5>
+  </div>
+  <div class="input-group mb-4 mt-4">
+    <h5><%= f.text_field :description, class: "form-control" %></h5>
+  </div>
+
   <%= f.submit class: "btn btn-outline-secondary btn-sm" %>
+
 <% end %>

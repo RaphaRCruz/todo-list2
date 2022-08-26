@@ -1,5 +1,5 @@
 <div class="card-body mb-4">
-  <h3><b>Tasks To do: </b><span class="badge bg-primary"><%= Task.status %></span></h3>
+  <h3><b>Tasks To do: </b><span class="badge bg-<%= Task.badge_color %>"><%= Task.status %></span></h3>
   <p class="text-secondary mb-0"><%= Task.percent_done %>% Complete (<%= Task.completed %>/<%= Task.total %>) Tasks</p>
   <div class="progress">
     <div class="progress-bar bg-primary" role="progressbar" style="width: <%= Task.percent_done %>%" aria-valuenow="<%= Task.percent_done %>" aria-valuemin="0" aria-valuemax="100"></div>

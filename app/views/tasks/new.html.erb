@@ -1,7 +1,13 @@
 <h3><b>Create a new Task:</b></h3>
 
-<%= simple_form_for(@task) do |f| %>
-  <%= f.input :name, placeholder: "ex: Sleep" %>
-  <%= f.input :description, placeholder: "ex: Go to bed at 23h" %>
+<%= form_for(@task) do |f| %>
+  <div class="input-group mb-4 mt-4">
+    <h5><%= f.text_field :name, class: "form-control", placeholder: "ex: Sleep" %></h5>
+  </div>
+  <div class="input-group mb-4 mt-4">
+    <h5><%= f.text_field :description, class: "form-control", placeholder: "ex: Go to bed at 23h" %></h5>
+  </div>
+
   <%= f.submit class: "btn btn-outline-secondary btn-sm" %>
+
 <% end %>

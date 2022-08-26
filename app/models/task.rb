@@ -32,4 +32,15 @@ class Task < ApplicationRecord
       "In progress"
     end
   end
+
+  def self.badge_color
+    case self.percent_done.to_i
+    when 0
+      "dark"
+    when 100
+      "primary"
+    else
+      "secondary"
+    end
+  end
 end
