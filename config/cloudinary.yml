@@ -1,0 +1,18 @@
+development:
+  cloud_name: rapharcruz
+  api_key: '257692479653283'
+  api_secret: 38xPkughZ0wY6LZGyHmbDb3EioU
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: rapharcruz
+  api_key: '257692479653283'
+  api_secret: 38xPkughZ0wY6LZGyHmbDb3EioU
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: rapharcruz
+  api_key: '257692479653283'
+  api_secret: 38xPkughZ0wY6LZGyHmbDb3EioU
+  enhance_image_tag: true
+  static_file_support: false
