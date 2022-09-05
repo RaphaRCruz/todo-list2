@@ -1,8 +1,8 @@
 <div class="card-body mb-4">
-  <h3><b>Tasks To do: </b><span class="badge bg-<%= Task.badge_color %>"><%= Task.status %></span></h3>
-  <p class="text-secondary mb-0"><%= Task.percent_done %>% Complete (<%= Task.completed %>/<%= Task.total %>) Tasks</p>
+  <h3><b>Tasks To do: </b><span class="badge bg-<%= current_user.tasks.badge_color %>"><%= current_user.tasks.status %></span></h3>
+  <p class="text-secondary mb-0"><%= current_user.tasks.percent_done %>% Complete (<%= current_user.tasks.completed %>/<%= current_user.tasks.total %>) Tasks</p>
   <div class="progress">
-    <div class="progress-bar bg-primary" role="progressbar" style="width: <%= Task.percent_done %>%" aria-valuenow="<%= Task.percent_done %>" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar bg-primary" role="progressbar" style="width: <%= current_user.tasks.percent_done %>%" aria-valuenow="<%= current_user.tasks.percent_done %>" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
 </div>
 

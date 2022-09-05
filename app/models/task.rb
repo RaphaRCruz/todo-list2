@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  belongs_to :user
   validates :name, presence: true
   validates :description, presence: true
 
@@ -9,16 +10,16 @@ class Task < ApplicationRecord
     description.capitalize!
   end
 
-  def self.completed
+  def self.completed(*)
     Task.where(done: true).count
   end
 
-  def self.percent_done
+  def self.percent_done(*)
     return 0 if total == 0
     (100 * completed.to_f / total).round(1)
   end
 
-  def self.total
+  def self.total(*)
     Task.count
   end
 
