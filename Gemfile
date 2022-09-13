@@ -32,8 +32,6 @@ gem "font-awesome-sass", "~> 6.1"
 
 gem "autoprefixer-rails"
 
-gem 'stimulus_reflex', '~> 3.4', '>= 3.4.1'
-
 gem 'pundit', '~> 2.2'
 
 # Use Active Storage variant

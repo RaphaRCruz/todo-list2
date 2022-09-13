@@ -11,8 +11,10 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.new(task_params)
-    @task.save
-    redirect_to root_path
+
+    redirect_to root_path, notice: "Created success!" if @task.save!
+  rescue ActiveRecord::RecordInvalid => e
+    render :new, alert: "Fields can't be blank!" if !@task.valid?
   end
 
   def edit

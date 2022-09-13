@@ -4,7 +4,7 @@ class Task < ApplicationRecord
   validates :description, presence: true
 
   before_validation :capitalize
-
+  
   def capitalize
     name.capitalize!
     description.capitalize!

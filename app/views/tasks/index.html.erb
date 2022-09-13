@@ -1,8 +1,8 @@
 <div class="card-body mb-4">
-  <h3><b>Tasks To do: </b><span class="badge bg-<%= current_user.tasks.badge_color %>"><%= current_user.tasks.status %></span></h3>
-  <p class="text-secondary mb-0"><%= current_user.tasks.percent_done %>% Complete (<%= current_user.tasks.completed %>/<%= current_user.tasks.total %>) Tasks</p>
+  <h3><b>Tasks To do: </b><span class="badge bg-<%= @tasks.badge_color %>"><%= @tasks.status %></span></h3>
+  <p class="text-secondary mb-0"><%= @tasks.percent_done %>% Complete (<%= @tasks.completed %>/<%= @tasks.total %>) Tasks</p>
   <div class="progress">
-    <div class="progress-bar bg-primary" role="progressbar" style="width: <%= current_user.tasks.percent_done %>%" aria-valuenow="<%= current_user.tasks.percent_done %>" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar bg-primary" role="progressbar" style="width: <%= @tasks.percent_done %>%" aria-valuenow="<%= @tasks.percent_done %>" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
 </div>
 
@@ -16,7 +16,7 @@
           <td><em><%= task.description %></em></td>
           <td>
             <center>
-              <%= link_to "#", class: 'btn btn-primary', data: { reflex: 'click->Task#mark_incomplete', id: task.id } do %>
+              <%= link_to "#", class: 'btn btn-primary' do %>
                 <i class='fas fa-check'></i>
               <% end %>
             </center>
@@ -40,7 +40,7 @@
           <td><%= task.description %></td>
           <td>
             <center>
-              <%= link_to "#", class: 'btn btn-dark', data: { reflex: 'click->Task#mark_complete', id: task.id } do %>
+              <%= link_to "#", class: 'btn btn-dark' do %>
                 <i class='fas fa-times'></i>
               <% end %>
             </center>
