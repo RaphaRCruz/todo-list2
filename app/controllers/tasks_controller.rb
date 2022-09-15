@@ -24,7 +24,12 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
-    redirect_to root_path
+
+    if @task.update(task_params)
+      redirect_to root_path, notice: 'Updated success!'
+    else
+      redirect_to edit_task_path, alert: "Fields can't be blank!"
+    end
   end
 
   def destroy
